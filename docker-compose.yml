@@ -1,0 +1,20 @@
+services:
+  web:
+    image: <yourDockerImage>
+    ports:
+      - "5000:5000"
+    networks:
+      - app-net
+
+  redis:
+    image: redis:alpine
+    volumes:
+      - redisdata:/data
+    networks:
+      - app-net
+
+volumes:
+  redisdata:
+
+networks:
+  app-net:
